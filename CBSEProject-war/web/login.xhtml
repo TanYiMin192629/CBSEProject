@@ -32,15 +32,15 @@
                                             <p:growl autoUpdate="true"/>
                                             <div class="row">
                                                 <div class="col s12 input-field">
-                                                    <h:inputText id="email" required="true" requiredMessage="Email is required"/>
+                                                    <h:inputText id="email" value="#{userController.user.email}" required="true" requiredMessage="Email is required"/>
                                                     <h:outputLabel for="email" value="Email"/>
                                             </div>
                                                 <div class="col s12 input-field">
-                                                    <h:inputSecret id="password" required="true" requiredMessage="Password is required"/>
+                                                    <h:inputSecret id="password" value="#{userController.user.password}" required="true" requiredMessage="Password is required"/>
                                                     <h:outputLabel for="password" value="Password"/>
                                             </div>
                                                 <div class="col s12 input-field">
-                                                    <h:commandLink value="Login" styleClass="btn btn-large" />
+                                                    <h:commandLink value="Login" action="#{userController.login()}" styleClass="btn btn-large" />
                                             </div>
                                           </div>
                                         </h:form>

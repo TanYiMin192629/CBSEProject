@@ -11,14 +11,14 @@ import java.io.Serializable;
  *
  * @author acer
  */
-@Named(value = "loginJSFManagedBean")
+@Named(value = "loginController")
 @SessionScoped
-public class loginJSFManagedBean implements Serializable {
+public class loginController implements Serializable {
 
     /**
-     * Creates a new instance of loginJSFManagedBean
+     * Creates a new instance of loginController
      */
-    public loginJSFManagedBean() {
+    public loginController() {
     }
     
 }
