@@ -20,6 +20,7 @@ public class userController implements Serializable {
 
     @EJB
     private Login login1;
+    private Login login2;
 
     @EJB
     private UsersFacade usersFacade;
@@ -49,6 +50,8 @@ public class userController implements Serializable {
         if( login1.authenticate(this.user.getEmail(),this.user.getPassword())){
             return "user_homepage";
         }
+        else
+            
         return "index";
     }
 
