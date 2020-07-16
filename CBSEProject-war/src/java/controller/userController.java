@@ -25,11 +25,11 @@ public class userController implements Serializable {
 
     @EJB
     private Login login1;
+    private Login login2;
 
     @EJB
     private UsersFacade usersFacade;
 
-    
     private Users user = new Users();
     
     
@@ -62,14 +62,15 @@ public class userController implements Serializable {
     }
 
     public String login() {
-        //if (this.usersFacade.login(this.user.getUsername(), this.user.getPassword())) {
-        System.out.print(this.user.getEmail());
-        System.out.print(this.user.getPassword());
-        if( login1.authenticate(this.user.getEmail(),this.user.getPassword())){
-            this.user = user;
+
+        if (login1.authenticate(this.user.getEmail(), this.user.getPassword()).equals("admin")) {
+            return "AdminHomepage";
+        } else if (login1.authenticate(this.user.getEmail(), this.user.getPassword()).equals("user")) {
             return "user_homepage";
+        } else {
+            return "index";
         }
-        return "index";
+
     }
     
     public void edit(Users user){
@@ -79,5 +80,5 @@ public class userController implements Serializable {
 
     public userController() {
     }
-    
+
 }

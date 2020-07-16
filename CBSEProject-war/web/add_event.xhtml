@@ -27,40 +27,36 @@
                                         <h:form id="login-form">
                                             <p:growl autoUpdate="true"/>
                                             <div class="row">
-                                                <div class="col s12 input-field">
-                                            <h:inputText id="event_id" requiredMessage="Event ID is required:"/>
-                                            <h:outputLabel for="event_id" value="Event ID"/>
-                                                </div>
+                                              
                                                  <div class="col s12 input-field">
-                                            <h:inputText id="name" requiredMessage="Event Name is required:"/>
+                                            <h:inputText id="name" value="#{eventController.e.name}" requiredMessage="Event Name is required:"/>
                                             <h:outputLabel for="name" value="Event Name"/>
                                                 </div>
                                                  <div class="col s12 input-field">
-                                            <h:inputText id="date" requiredMessage="Date is required:"/>
+                                            <h:inputText id="date" value="#{eventController.e.date}" requiredMessage="Date is required:"/>
                                             <h:outputLabel for="date" value="Date"/>
                                                 </div>
                                                 <div class="col s12 input-field">
-                                            <h:inputText id="time" requiredMessage="Time is required:"/>
+                                            <h:inputText id="time"  value="#{eventController.e.time}" requiredMessage="Time is required:"/>
                                             <h:outputLabel for="time" value="Time"/>
                                                 </div>
                                                  <div class="col s12 input-field">
-                                            <h:inputText id="venue" requiredMessage="Venue is required:"/>
+                                            <h:inputText id="venue"  value="#{eventController.e.venue}" requiredMessage="Venue is required:"/>
                                             <h:outputLabel for="venue" value="Venue"/>
                                                 </div>
                                                  <div class="col s12 input-field">
-                                            <h:inputText id="fee" requiredMessage="Fee is required:"/>
+                                            <h:inputText id="fee"  value="#{eventController.e.fee}" requiredMessage="Fee is required:"/>
                                             <h:outputLabel for="fee" value="Fee"/>
                                                 </div>
                                                  <div class="col s12 input-field">
-                                            <h:inputText id="description" requiredMessage="Description is required:"/>
+                                            <h:inputText id="description" value="#{eventController.e.description}" requiredMessage="Description is required:"/>
                                             <h:outputLabel for="description" value="Description"/>
                                                 </div>
                                                 <div class="col s12 input-field">
-                                                    <h:commandLink value="Save" styleClass="btn btn-large"/>
+                                                    <h:commandLink value="Back"  style="margin:25px;" styleClass="btn btn-large"/>
+                                                    <h:commandLink value="Save" style="margin:25px;" action="#{eventController.add()}" styleClass="btn btn-large"/>
                                                 </div>
-                                                 <div class="col s12 input-field">
-                                                    <h:commandLink value="Back" styleClass="btn btn-large"/>
-                                                </div>
+                                                
                                             </div>
                                         </h:form>
                                     </div>
