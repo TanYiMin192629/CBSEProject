@@ -24,36 +24,38 @@
                         <div class="col s6 offset-s3">
                             <div class="card">
                                 <div class="card-content">
-                                    <h2>Update Profile</h2>
+                                    <h2>Profile</h2>
 
                                     <div class="left-align" > 
                                         <h:form id="login-form">
                                             <p:growl autoUpdate="true"/>
-                                            <div class="row">
+
+                                        <p:dataTable var="u" value="#{userController.findUser()}">
+                                        <p:column headerText="Profile">
+                                        <div class="row">
                                                 <div class="col s12 input-field">
-                                                    <h:inputText id="email" required="true" requiredMessage="Email is required"/>
+                                                    <h:inputText id="email" value="#{u.email}" required="true" requiredMessage="Email is required"/>
                                                     <h:outputLabel for="email" value="Email"/>
                                             </div>
                                                 <div class="col s12 input-field">
-                                                    <h:inputText id="name" required="true" requiredMessage="Name is required"/>
+                                                    <h:inputText id="name" value="#{u.username}" required="true" requiredMessage="Name is required"/>
                                                     <h:outputLabel for="name" value="Name"/>
                                             </div>
                                                 <div class="col s12 input-field">
-                                                    <h:inputText id="contactNumber" required="true" requiredMessage="Contact number is required"/>
+                                                    <h:inputText id="contactNumber"  value="#{u.contactnum}" required="true" requiredMessage="Contact number is required"/>
                                                     <h:outputLabel for="contactNumber" value="Contact Number"/>
                                             </div>
-                                                <div class="col s12 input-field">
-                                                    <h:inputSecret id="password" required="true" requiredMessage="Password is required"/>
-                                                    <h:outputLabel for="password" value="Password"/>
-                                            </div>
-                                                <div class="col s12 input-field">
-                                                    <h:commandLink value="Update" styleClass="btn btn-large" />
-                                            </div>
-                                          </div>
+
+                                             </div>
+                                        
+
+                                          </p:column>
+                                           
+                                         </p:dataTable>
+                                                
                                         </h:form>
-                                        <p:link outcome="user_homepage" value="Back">
-                                            <f:param name="back" value="10" />
-                                        </p:link>
+                                        <br></br>
+                                        <p:button value="Back" outcome="user_homepage" />
                                         
                                     </div>
                                 </div>
