@@ -9,6 +9,7 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -20,7 +21,7 @@ public class userController implements Serializable {
 
     @EJB
     private UsersFacade usersFacade;
-    
+
     private Users user = new Users();
 
     public Users getUser() {
@@ -30,20 +31,23 @@ public class userController implements Serializable {
     public void setUser(Users user) {
         this.user = user;
     }
-    
-    public String register(){
+
+    public String register() {
         this.user.setRole(1);
         this.usersFacade.create(user);
         this.user = new Users();
         return "index";
     }
-    
-    public String login(){
 
-        return "";
+    public String login() {
+        //if (this.usersFacade.login(this.user.getUsername(), this.user.getPassword())) {
+        if( this.usersFacade.login(this.user.getUsername(), this.user.getPassword()) ){
+            return "user_homepage";
+        }
+        return "index";
     }
-    
+
     public userController() {
     }
-    
+
 }
