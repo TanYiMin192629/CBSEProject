@@ -62,7 +62,7 @@ public class userController implements Serializable {
     }
 
     public String login() {
-        
+
 
         if (login1.authenticate(this.user.getEmail(), this.user.getPassword()).equals("admin")) {
             return "AdminHomepage";
