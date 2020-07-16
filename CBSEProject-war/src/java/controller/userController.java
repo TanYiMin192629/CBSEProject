@@ -26,7 +26,6 @@ public class userController implements Serializable {
     @EJB
     private UsersFacade usersFacade;
 
-    
     private Users user = new Users();
 
     public Users getUser() {
@@ -45,16 +44,16 @@ public class userController implements Serializable {
     }
 
     public String login() {
-        //if (this.usersFacade.login(this.user.getUsername(), this.user.getPassword())) {
-        System.out.print(this.user.getEmail());
-        System.out.print(this.user.getPassword());
-        if( login1.authenticate(this.user.getEmail(),this.user.getPassword())){
+        if (login1.authenticate(this.user.getEmail(), this.user.getPassword()).equals("admin")) {
+            return "AdminHomepage";
+        } else if (login1.authenticate(this.user.getEmail(), this.user.getPassword()).equals("user")) {
             return "user_homepage";
+        } else {
+            return "index";
         }
-        return "index";
     }
 
     public userController() {
     }
-    
+
 }
