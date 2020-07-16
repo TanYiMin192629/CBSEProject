@@ -17,22 +17,25 @@ import javax.persistence.Persistence;
 @Stateless
 @LocalBean
 public class Login {
-    
+
     EntityManagerFactory emf;
     EntityManager em;
-    
-    public boolean authenticate(String email, String password){
+
+    public String authenticate(String email, String password) {
         emf = Persistence.createEntityManagerFactory("CBSEProject-ejbPU");
         em = emf.createEntityManager();
-        
-        try{
+
+        try {
             Users u = em.createNamedQuery("Users.login", Users.class).setParameter("email", email).setParameter("password", password).getSingleResult();
-            if (u != null) {
-            return true;
-        }
-        return false;
-        }catch(Exception e){
-           return false; 
+            if (u.getRole() == 0) {
+                return "admin";
+            } else if (u.getRole() == 1) {
+                return "user";
+            } else {
+                return "error";
+            }
+        } catch (Exception e) {
+            return "error";
         }
     }
     // Add business logic below. (Right-click in editor and choose
