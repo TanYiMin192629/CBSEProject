@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+/nbproject/private/
+/CBSEProject-war/nbproject/private/
+/CBSEProject-ejb/nbproject/private/
+/CBSEProject-war/build/
+/CBSEProject-ejb/build/
+/CBSEProject-ejb/dist/
+/CBSEProject-war/dist/
+=======
+
 # Created by https://www.toptal.com/developers/gitignore/api/netbeans
 # Edit at https://www.toptal.com/developers/gitignore?templates=netbeans
 
