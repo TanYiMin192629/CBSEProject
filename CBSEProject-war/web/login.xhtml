@@ -5,9 +5,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-
-        <title>Welcome</title>
-
+        <title>Login</title>
         
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
@@ -23,16 +21,31 @@
             <div class="container">
                 <div class="center-align">
                     <div class="row">
-                        <div class="col s12 offset-3">
+                        <div class="col s6 offset-s3">
                             <div class="card">
                                 <div class="card-content">
                                     <h2>Welcome to EVT!</h2>
                                     
                                     <img class="responsive-img" style="width: 100%" src="images/Event-Planning.png" />
-                                    <div class="center-align-align" > 
-                                        
-                                        <p:link outcome="login" value="Login">
-                                            <f:param name="login" value="10" />
+                                    <div class="left-align" > 
+                                        <h:form id="login-form">
+                                            <p:growl autoUpdate="true"/>
+                                            <div class="row">
+                                                <div class="col s12 input-field">
+                                                    <h:inputText id="email" value="#{userController.user.email}" required="true" requiredMessage="Email is required"/>
+                                                    <h:outputLabel for="email" value="Email"/>
+                                            </div>
+                                                <div class="col s12 input-field">
+                                                    <h:inputSecret id="password" value="#{userController.user.password}" required="true" requiredMessage="Password is required"/>
+                                                    <h:outputLabel for="password" value="Password"/>
+                                            </div>
+                                                <div class="col s12 input-field">
+                                                    <h:commandLink value="Login" action="#{userController.login()}" styleClass="btn btn-large" />
+                                            </div>
+                                          </div>
+                                        </h:form>
+                                        <p:link outcome="register" value="Register as user">
+                                            <f:param name="register" value="10" />
                                         </p:link>
                                         
                                     </div>
