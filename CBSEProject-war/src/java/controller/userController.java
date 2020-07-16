@@ -1,6 +1,4 @@
-/*
- * Loo Yiyang
- */
+
 package controller;
 
 import ejb.Login;
