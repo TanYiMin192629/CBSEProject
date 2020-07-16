@@ -48,42 +48,47 @@
              <div>
                  <h1>Manage Event</h1>
              </div>
-   <p:dataTable var="car" value="#{dtBasicView.cars}">
+           <h:form>
+   <p:dataTable var="e" value="#{eventController.findAll()}">
     <p:column headerText="Event Id">
-        <h:outputText value="#{event.id}" />
+        <h:outputText value="#{e.eventid}" />
     </p:column>
  
     <p:column headerText="Event Name">
-        <h:outputText value="#{event.name}" />
+        <h:outputText value="#{e.name}" />
     </p:column>
  
     <p:column headerText="Date">
-        <h:outputText value="#{event.date}" />
+        <h:outputText value="#{e.date}" />
     </p:column>
  
     <p:column headerText="Time">
-        <h:outputText value="#{event.time}" />
+        <h:outputText value="#{e.time}" />
     </p:column>
        
     <p:column headerText="Venue">
-        <h:outputText value="#{event.venue}" />
+        <h:outputText value="#{e.venue}" />
     </p:column>
        
     <p:column headerText="Fee">
-        <h:outputText value="#{event.fee}" />
+        <h:outputText value="#{e.fee}" />
     </p:column>
        
     <p:column headerText="Description">
-        <h:outputText value="#{event.description}" />
+        <h:outputText value="#{e.description}" />
     </p:column>
        
-    <p:column headerText="Action">
+    <!--<p:column headerText="Action">
         <h:outputText value="#{event.action}" />
     </p:column>
+    -->
        
     </p:dataTable>
+          
+           </h:form>
  </p:layoutUnit>
               </p:layout>
+        
     </h:body>
 </html>
 
