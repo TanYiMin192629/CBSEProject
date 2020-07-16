@@ -40,4 +40,9 @@ public class eventController implements Serializable {
     public List<Events> findAll(){
         return this.eventsFacade.findAll(); 
     }
+    
+    public String add(){
+        this.eventsFacade.create(this.e);
+        return "manage_event";
+    }
 }

@@ -20,6 +20,7 @@ public class userController implements Serializable {
 
     @EJB
     private Login login1;
+    private Login login2;
 
     @EJB
     private UsersFacade usersFacade;
@@ -49,6 +50,7 @@ public class userController implements Serializable {
         } else {
             return "index";
         }
+
     }
 
     public userController() {
