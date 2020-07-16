@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+/nbproject/private/
+/CBSEProject-war/nbproject/private/
+/CBSEProject-ejb/nbproject/private/
+/CBSEProject-war/build/
+/CBSEProject-ejb/build/
+/CBSEProject-ejb/dist/
+/CBSEProject-war/dist/
+=======
 
 # Created by https://www.toptal.com/developers/gitignore/api/netbeans
 # Edit at https://www.toptal.com/developers/gitignore?templates=netbeans
@@ -13,3 +22,4 @@ nbdist/
 .nb-gradle/
 
 # End of https://www.toptal.com/developers/gitignore/api/netbeans
+>>>>>>> 4b73cb8f7152083eb02a4997a20481a558467fcb
