@@ -1,3 +1,7 @@
 /nbproject/private/
 /CBSEProject-war/nbproject/private/
 /CBSEProject-ejb/nbproject/private/
+/CBSEProject-war/build/
+/CBSEProject-ejb/build/
+/CBSEProject-ejb/dist/
+/CBSEProject-war/dist/
