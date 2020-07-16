@@ -60,12 +60,6 @@ public abstract class AbstractFacade<T> {
         return ((Long) q.getSingleResult()).intValue();
     }
     
-    public boolean login(String username, String password){
-        Users u = getEntityManager().createNamedQuery("Users.login", Users.class).setParameter("username", username).setParameter("password", password).getSingleResult();
-        if (u != null){
-            return true;
-        }
-        return false;
-    }
+    
     
 }

@@ -3,6 +3,7 @@
  */
 package controller;
 
+import ejb.Login;
 import entities.Users;
 import model.UsersFacade;
 import javax.inject.Named;
@@ -20,8 +21,12 @@ import javax.persistence.Persistence;
 public class userController implements Serializable {
 
     @EJB
+    private Login login1;
+
+    @EJB
     private UsersFacade usersFacade;
 
+    
     private Users user = new Users();
 
     public Users getUser() {
@@ -41,7 +46,9 @@ public class userController implements Serializable {
 
     public String login() {
         //if (this.usersFacade.login(this.user.getUsername(), this.user.getPassword())) {
-        if( this.usersFacade.login(this.user.getUsername(), this.user.getPassword()) ){
+        System.out.print(this.user.getEmail());
+        System.out.print(this.user.getPassword());
+        if( login1.authenticate(this.user.getEmail(),this.user.getPassword())){
             return "user_homepage";
         }
         return "index";
@@ -49,5 +56,5 @@ public class userController implements Serializable {
 
     public userController() {
     }
-
+    
 }
