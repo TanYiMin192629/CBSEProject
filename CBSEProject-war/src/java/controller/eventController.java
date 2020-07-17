@@ -58,5 +58,9 @@ public class eventController implements Serializable {
         return "manage_event";
     }
     
+    public String back(){
+        return "manage_event";
+    }
+    
     
 }
