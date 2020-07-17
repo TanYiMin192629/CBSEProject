@@ -64,7 +64,6 @@ public class userController implements Serializable {
 
     public String login() {
 
-
         if (login1.authenticate(this.user.getEmail(), this.user.getPassword()).equals("admin")) {
             return "AdminHomepage";
         } else if (login1.authenticate(this.user.getEmail(), this.user.getPassword()).equals("user")) {
@@ -74,6 +73,7 @@ public class userController implements Serializable {
         }
 
     }
+    
     
     public void edit(Users user){
         this.usersFacade.edit(this.user);
