@@ -50,27 +50,27 @@
              </div>
            <h:form>
    <p:dataTable var="e" value="#{eventController.findAll()}">
-    <p:column headerText="Event Id">
+    <p:column headerText="Event Id" style="width:80px;">
         <h:outputText value="#{e.eventid}" />
     </p:column>
  
-    <p:column headerText="Event Name">
+    <p:column headerText="Event Name" style="width:200px;">
         <h:outputText value="#{e.name}" />
     </p:column>
  
-    <p:column headerText="Date">
+    <p:column headerText="Date" style="width:100px;">
         <h:outputText value="#{e.date}" />
     </p:column>
  
-    <p:column headerText="Time">
+    <p:column headerText="Time" style="width:100px;">
         <h:outputText value="#{e.time}" />
     </p:column>
        
-    <p:column headerText="Venue">
+    <p:column headerText="Venue" style="width:100px;">
         <h:outputText value="#{e.venue}" />
     </p:column>
        
-    <p:column headerText="Fee">
+    <p:column headerText="Fee" style="width:50px;">
         <h:outputText value="#{e.fee}" />
     </p:column>
        
@@ -78,11 +78,16 @@
         <h:outputText value="#{e.description}" />
     </p:column>
        
-    <!--<p:column headerText="Action">
-        <h:outputText value="#{event.action}" />
+    <p:column headerText="Action" style="width:100spx;">
+        <h:commandLink value="Edit" action="#{eventController.edit(e)}"         
+                        style="margin:5px; size:1%;" styleClass="btn btn-small"/> 
+        <h:commandLink value="Delete" action="#{eventController.delete(e)}" 
+                        onclick="return confirm('Are you sure?')"
+                        style="margin:5px; size:1%;" styleClass="btn btn-small"/>
+  
     </p:column>
     -->
-       
+   
     </p:dataTable>
           
            </h:form>
