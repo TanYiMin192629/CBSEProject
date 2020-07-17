@@ -26,6 +26,7 @@ public class userController implements Serializable {
     @EJB
     private Login login1;
 
+
     @EJB
     private UsersFacade usersFacade;
 

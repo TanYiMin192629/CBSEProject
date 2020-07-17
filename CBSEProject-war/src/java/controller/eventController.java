@@ -45,4 +45,18 @@ public class eventController implements Serializable {
         this.eventsFacade.create(this.e);
         return "manage_event";
     }
+    
+    public void delete (Events e){
+        this.eventsFacade.remove(e);
+    }
+    public String edit(Events e){
+        this.e = e;
+        return "edit_event";
+    }
+    public String edit(){
+        this.eventsFacade.edit(this.e);
+        return "manage_event";
+    }
+    
+    
 }
