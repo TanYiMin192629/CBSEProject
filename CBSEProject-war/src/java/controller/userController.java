@@ -2,11 +2,13 @@
 package controller;
 
 import ejb.Login;
+import ejb.Profile;
 import entities.Users;
 import model.UsersFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.persistence.Persistence;
 
@@ -19,6 +21,9 @@ import javax.persistence.Persistence;
 public class userController implements Serializable {
 
     @EJB
+    private Profile profile;
+
+    @EJB
     private Login login1;
 
 
@@ -26,6 +31,8 @@ public class userController implements Serializable {
     private UsersFacade usersFacade;
 
     private Users user = new Users();
+    
+    
 
     public Users getUser() {
         return user;
@@ -33,6 +40,18 @@ public class userController implements Serializable {
 
     public void setUser(Users user) {
         this.user = user;
+    }
+    
+    
+    public List<Users> findAll(){
+        return this.usersFacade.findAll();
+    
+    }
+    
+    public List<Users> findUser(){
+        
+        return this.profile.findUsers(this.user.getEmail(),this.user.getPassword());
+ 
     }
 
     public String register() {
@@ -43,6 +62,7 @@ public class userController implements Serializable {
     }
 
     public String login() {
+
         if (login1.authenticate(this.user.getEmail(), this.user.getPassword()).equals("admin")) {
             return "AdminHomepage";
         } else if (login1.authenticate(this.user.getEmail(), this.user.getPassword()).equals("user")) {
@@ -51,6 +71,11 @@ public class userController implements Serializable {
             return "index";
         }
 
+    }
+    
+    public void edit(Users user){
+        this.usersFacade.edit(this.user);
+    
     }
 
     public userController() {
