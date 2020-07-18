@@ -25,35 +25,35 @@
                             <div class="card">
                                 <div class="card-content">
                                     <h2>Join Event</h2>
-                                    
-                                    <div class="left-align" > 
-                                        <p:dataTable>
+                                    <h:form>
+                                    <div class="left-align"> 
+                                        <p:dataTable var="e" value="#{joinEventController.findAll()}">
                                             <p:column headerText="Event ID">
-                                                <h:outputText value="" />
+                                                <h:outputText value="#{e.eventid}" />
                                             </p:column>
 
                                             <p:column headerText="Event Name">
-                                                <h:outputText value="" />
+                                                <h:outputText value="#{e.name}" />
                                             </p:column>
 
                                             <p:column headerText="Date">
-                                                <h:outputText value="" />
+                                                <h:outputText value="#{e.date}" />
                                             </p:column>
 
                                             <p:column headerText="Time">
-                                                <h:outputText value="" />
+                                                <h:outputText value="#{e.time}" />
                                             </p:column>
 
                                                     <p:column headerText="Venue">
-                                                <h:outputText value="" />
+                                                <h:outputText value="#{e.venue}" />
                                             </p:column>
 
                                                     <p:column headerText="Fee">
-                                                <h:outputText value="" />
+                                                <h:outputText value="#{e.fee}" />
                                             </p:column>
 
                                                     <p:column headerText="Action">
-                                                <p:button value="Join"/>
+                                                <h:commandLink value="Join" action="#{joinEventController.join(e)}" style="margin:5px; size:20%;" styleClass="btn btn-small"/> 
                                             </p:column>
 
                                         </p:dataTable>
@@ -61,6 +61,7 @@
                                        <br></br><p:button value="Back" outcome="user_homepage" />
                                         
                                     </div>
+                                        </h:form>
                                 </div>
                             </div>
                         </div>
