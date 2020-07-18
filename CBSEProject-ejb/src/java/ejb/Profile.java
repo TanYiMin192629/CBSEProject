@@ -24,11 +24,11 @@ public class Profile {
     EntityManagerFactory emf;
     EntityManager em;
     
-    public List<Users> findUsers(String email, String password){
+    public Users findUsers(String email, String password){
         emf = Persistence.createEntityManagerFactory("CBSEProject-ejbPU");
         em = emf.createEntityManager();
         
-        return em.createNamedQuery("Users.login", Users.class).setParameter("email", email).setParameter("password", password).getResultList();
+        return em.createNamedQuery("Users.login", Users.class).setParameter("email", email).setParameter("password", password).getSingleResult();
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")

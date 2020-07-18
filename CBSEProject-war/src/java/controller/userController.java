@@ -1,4 +1,3 @@
-
 package controller;
 
 import ejb.Login;
@@ -26,14 +25,10 @@ public class userController implements Serializable {
     @EJB
     private Login login1;
 
-
     @EJB
     private UsersFacade usersFacade;
 
-    
     private Users user = new Users();
-    
-    
 
     public Users getUser() {
         return user;
@@ -42,17 +37,16 @@ public class userController implements Serializable {
     public void setUser(Users user) {
         this.user = user;
     }
-    
-    
-    public List<Users> findAll(){
+
+    public List<Users> findAll() {
         return this.usersFacade.findAll();
-    
+
     }
-    
-    public List<Users> findUser(){
-        
-        return this.profile.findUsers(this.user.getEmail(),this.user.getPassword());
- 
+
+    public Users findUser() {
+
+        return this.profile.findUsers(this.user.getEmail(), this.user.getPassword());
+
     }
 
     public String register() {
@@ -65,19 +59,23 @@ public class userController implements Serializable {
     public String login() {
 
         if (login1.authenticate(this.user.getEmail(), this.user.getPassword()).equals("admin")) {
+            this.user = findUser();
             return "AdminHomepage";
         } else if (login1.authenticate(this.user.getEmail(), this.user.getPassword()).equals("user")) {
+            this.user = findUser();
             return "user_homepage";
         } else {
             return "index";
         }
 
     }
-    
-    
-    public void edit(Users user){
-        this.usersFacade.edit(this.user);
-    
+
+    public String edit(Users user) {
+        System.out.print(user.getId());
+        System.out.print(user.getUsername());
+
+        this.usersFacade.edit(user);
+        return "user_homepage";
     }
 
     public userController() {
