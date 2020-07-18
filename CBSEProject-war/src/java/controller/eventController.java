@@ -43,6 +43,7 @@ public class eventController implements Serializable {
     
     public String add(){
         this.eventsFacade.create(this.e);
+        this.e = new Events();
         return "manage_event";
     }
     

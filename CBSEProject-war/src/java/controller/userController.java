@@ -2,6 +2,8 @@ package controller;
 
 import ejb.Login;
 import ejb.Profile;
+import entities.Events;
+import entities.Ticket;
 import entities.Users;
 import model.UsersFacade;
 import javax.inject.Named;
@@ -10,6 +12,8 @@ import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.persistence.Persistence;
+import model.EventsFacade;
+import model.TicketFacade;
 
 /**
  *
@@ -20,6 +24,12 @@ import javax.persistence.Persistence;
 public class userController implements Serializable {
 
     @EJB
+    private TicketFacade ticketFacade;
+
+    @EJB
+    private EventsFacade eventsFacade;
+
+    @EJB
     private Profile profile;
 
     @EJB
@@ -27,9 +37,12 @@ public class userController implements Serializable {
 
     @EJB
     private UsersFacade usersFacade;
-
+    
+    
     private Users user = new Users();
-
+    private Events e = new Events();
+    private Ticket ticket = new Ticket();
+    
     public Users getUser() {
         return user;
     }
@@ -38,6 +51,15 @@ public class userController implements Serializable {
         this.user = user;
     }
 
+    public Events getE() {
+        return e;
+    }
+
+    public void setE(Events e) {
+        this.e = e;
+    }
+
+    
     public List<Users> findAll() {
         return this.usersFacade.findAll();
 
@@ -71,11 +93,27 @@ public class userController implements Serializable {
     }
 
     public String edit(Users user) {
-        System.out.print(user.getId());
-        System.out.print(user.getUsername());
-
         this.usersFacade.edit(user);
         return "user_homepage";
+    }
+    
+        public List<Events> events(){
+        return this.eventsFacade.findAll(); 
+    }
+
+    public String join(Events e) {
+        this.e = e;
+        return "book_ticket";
+    }
+
+    public String book() {
+        System.out.print(e.getName());
+        System.out.print(user.getEmail());
+        this.ticket.setEventid(e);
+        this.ticket.setUserid(user);
+        this.ticketFacade.create(ticket);
+        this.ticket = new Ticket();
+        return "check_ticket";
     }
 
     public userController() {
