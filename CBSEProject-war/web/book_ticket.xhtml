@@ -33,36 +33,38 @@
                                                 
                                                 <div class="col s12 input-field">
                                                     <h:outputText value="Event ID: " />
-                                                    <h:outputText value="E001" />
+                                                    <h:outputText value="#{userController.e.eventid}" />
                                             </div>
                                                 <div class="col s12 input-field">
                                                     <h:outputText value="Event Name: " />
-                                                    <h:outputText value="PC Competition" />
+                                                    <h:outputText value="#{userController.e.name}" />
                                             </div>
                                                 <div class="col s12 input-field">
                                                     <h:outputText value="Date: " />
-                                                    <h:outputText value="20 May 2020" />
+                                                    <h:outputText value="#{userController.e.date}" />
                                             </div>
                                                 <div class="col s12 input-field">
                                                      <h:outputText value="Time: " />
-                                                    <h:outputText value="10.00a.m." />
+                                                    <h:outputText value="#{userController.e.time}" />
                                             </div>
                                                 <div class="col s12 input-field">
                                                      <h:outputText value="Venue: " />
-                                                     <h:outputText value="FSKTM Lab" />
+                                                     <h:outputText value="#{userController.e.venue}" />
                                             </div>
                                                 <div class="col s12 input-field">
                                                      <h:outputText value="Fee: " />
-                                                     <h:outputText value="RM45" />
+                                                     <h:outputText value="#{userController.e.fee}" />
                                             </div>
                                                 <div class="col s12 input-field">
                                                      <h:outputText value="Description: " />
-                                                    <h:outputText value="Programming" />
+                                                    <h:outputText value="#{userController.e.description}" />
                                             </div>
+                                            
+                                                <h:commandLink value="Book Ticket" action="#{userController.book()}" style="margin:5px; size:20%;" styleClass="btn btn-large"/>
                                                 
                                           </div>
                                         </h:form>
-                                        <br></br><p:button value="Book Ticket" /> <p:button value="Back" outcome="user_homepage" />
+                                        <br></br> <p:button value="Back" outcome="join_event" />
                                         
                                     </div>
                                 </div>

@@ -27,13 +27,13 @@
                                     <h2>Check Ticket</h2>
                                     
                                     <div class="left-align" > 
-                                        <p:dataTable>
+                                        <p:dataTable var="t" value="#{ticketController.findall()}">
                                             <p:column headerText="Ticket ID">
-                                                <h:outputText value="" />
+                                                <h:outputText value="#{t.ticketid}" />
                                             </p:column>
 
                                             <p:column headerText="Event ID">
-                                                <h:outputText value="" />
+                                                <h:outputText value="#{t.eventid}" />
                                             </p:column>
 
                                             <p:column headerText="Event Name">
