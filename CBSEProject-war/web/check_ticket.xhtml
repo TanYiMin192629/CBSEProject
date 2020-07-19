@@ -25,38 +25,39 @@
                             <div class="card">
                                 <div class="card-content">
                                     <h2>Check Ticket</h2>
-                                    
+                                    <h:form id="login-form">
                                     <div class="left-align" > 
-                                        <p:dataTable var="t" value="#{ticketController.findall()}">
+                                        <p:dataTable var="t" value="#{userController.checkTicket()}">
                                             <p:column headerText="Ticket ID">
-                                                <h:outputText value="#{t.ticketid}" />
+                                                <h:outputText value="#{t[0]}" />
                                             </p:column>
 
                                             <p:column headerText="Event ID">
-                                                <h:outputText value="#{t.eventid}" />
+                                                <h:outputText value="#{t[1]}" />
                                             </p:column>
 
                                             <p:column headerText="Event Name">
-                                                <h:outputText value="" />
+                                                <h:outputText value="#{t[2]}" />
                                             </p:column>
 
                                             <p:column headerText="Date">
-                                                <h:outputText value="" />
+                                                <h:outputText value="#{t[3]}" />
                                             </p:column>
 
                                                     <p:column headerText="Fee">
-                                                <h:outputText value="" />
+                                                <h:outputText value="#{t[4]}" />
                                             </p:column>
 
                                                     <p:column headerText="Action">
-                                                <p:button value="Detail" />
+                                                        <h:commandLink value="Delete" action="#{userController.delete(t[0])}" style="margin:5px; size:20%;" styleClass="btn btn-large"/>
                                             </p:column>
 
                                         </p:dataTable>
                                         
-                                       <br></br><p:button value="Back" outcome="user_homepage" />
-                                        
+                                       
+                                        <br></br> <p:button value="Back" outcome="user_homepage" />
                                     </div>
+                                    </h:form>
                                 </div>
                             </div>
                         </div>

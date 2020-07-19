@@ -2,6 +2,7 @@ package controller;
 
 import ejb.Login;
 import ejb.Profile;
+import ejb.ticket;
 import entities.Events;
 import entities.Ticket;
 import entities.Users;
@@ -22,6 +23,9 @@ import model.TicketFacade;
 @Named(value = "userController")
 @SessionScoped
 public class userController implements Serializable {
+
+    @EJB
+    private ticket ticket1;
 
     @EJB
     private TicketFacade ticketFacade;
@@ -114,6 +118,15 @@ public class userController implements Serializable {
         this.ticketFacade.create(ticket);
         this.ticket = new Ticket();
         return "check_ticket";
+    }
+    
+    public List<Ticket> checkTicket() {
+        
+        return this.ticket1.checkTicket(this.user.getEmail());
+    }
+    
+    public int delete(int ticketID) {
+        return this.ticket1.deleteTicket(ticketID);
     }
 
     public userController() {
