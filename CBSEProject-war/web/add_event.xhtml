@@ -12,7 +12,17 @@
         <script type=" text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
     </link>
+                <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(function () {
+                $("#datepicker").datepicker();
+            });
+        </script>
+                </link>
     </h:head>
     <h:body styleClass="cyan lighten-5">
         <div class="valign-wrapper" id="login-page">
@@ -24,7 +34,7 @@
                                 <div class="card-content">
                                     <h1>Add Event</h1>
                                     <div class="left-align">
-                                        <h:form id="login-form">
+                                        <h:form id="login-form" action="DatePicker">
                                             <p:growl autoUpdate="true"/>
                                             <div class="row">
                                               
@@ -33,8 +43,8 @@
                                             <h:outputLabel for="name" value="Event Name"/>
                                                 </div>
                                                  <div class="col s12 input-field">
-                                            <h:inputText id="date" value="#{eventController.e.date}" requiredMessage="Date is required:"/>
-                                            <h:outputLabel for="date" value="Date"/>
+                                            <h:inputText id="datepicker" value="#{eventController.e.date}" requiredMessage="Date is required:"/>
+                                            <h:outputLabel for="datepicker" value="Date"/>
                                                 </div>
                                                 <div class="col s12 input-field">
                                             <h:inputText id="time"  value="#{eventController.e.time}" requiredMessage="Time is required:"/>
