@@ -6,6 +6,7 @@
 package controller;
 
 import entities.Events;
+import entities.Ticket;
 import entities.Users;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -13,21 +14,25 @@ import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import model.EventsFacade;
+import model.TicketFacade;
 
 /**
  *
  * @author Yi Min
  */
-@Named(value = "joinEventController")
+@Named(value = "ticketController")
 @SessionScoped
-public class joinEventController implements Serializable {
+public class ticketController implements Serializable {
+
+    @EJB
+    private TicketFacade ticketFacade;
     
     @EJB
     private EventsFacade eventsFacade;
-    private Events e = new Events();
     
- 
-    Users user = new Users();
+    
+    private Events e = new Events();
+    Users user;
     
     public Events getE() {
         return e;
@@ -45,22 +50,16 @@ public class joinEventController implements Serializable {
         this.user = user;
     }
     
-    public List<Events> findAll(){
-        return this.eventsFacade.findAll(); 
+    public List<Ticket> findall(){
+        return this.ticketFacade.findAll();
     }
-    
-    public String join(Events e){
-        this.e = e;
-        return "book_ticket";
-    }
-    
     
     
 
     /**
      * Creates a new instance of joinEventController
      */
-    public joinEventController() {
+    public ticketController() {
     }
     
 }
