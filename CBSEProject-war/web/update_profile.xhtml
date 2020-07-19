@@ -6,15 +6,15 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Profile</title>
-        
+
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
-       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"> </script>
-    
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
     </h:head>
     <h:body styleClass="cyan lighten-5">
         <div class="valign-wrapper" id="login-page">
@@ -30,33 +30,31 @@
                                         <h:form id="login-form">
                                             <p:growl autoUpdate="true"/>
 
-                                        <p:dataTable var="u" value="#{userController.findUser()}">
-                                        <p:column headerText="Profile">
-                                        <div class="row">
-                                                <div class="col s12 input-field">
-                                                    <h:inputText id="email" value="#{u.email}" required="true" requiredMessage="Email is required"/>
-                                                    <h:outputLabel for="email" value="Email"/>
-                                            </div>
-                                                <div class="col s12 input-field">
-                                                    <h:inputText id="name" value="#{u.username}" required="true" requiredMessage="Name is required"/>
-                                                    <h:outputLabel for="name" value="Name"/>
-                                            </div>
-                                                <div class="col s12 input-field">
-                                                    <h:inputText id="contactNumber"  value="#{u.contactnum}" required="true" requiredMessage="Contact number is required"/>
-                                                    <h:outputLabel for="contactNumber" value="Contact Number"/>
-                                            </div>
-
-                                             </div>
-                                        
-
-                                          </p:column>
-                                           
-                                         </p:dataTable>
-                                                
+                                            <p:dataTable var="u" value="#{userController.user}">
+                                                <p:column headerText="Profile">
+                                                    <div class="row">
+                                                        <div class="col s12 input-field">
+                                                            <h:inputText id="email" value="#{u.email}" required="true" requiredMessage="Email is required"/>
+                                                            <h:outputLabel for="email" value="Email"/>
+                                                        </div>
+                                                        <div class="col s12 input-field">
+                                                            <h:inputText id="name" value="#{u.username}" required="true" requiredMessage="Name is required"/>
+                                                            <h:outputLabel for="name" value="Name"/>
+                                                        </div>
+                                                        <div class="col s12 input-field">
+                                                            <h:inputText id="contactNumber"  value="#{u.contactnum}" required="true" requiredMessage="Contact number is required"/>
+                                                            <h:outputLabel for="contactNumber" value="Contact Number"/>
+                                                        </div>
+                                                        <div class="col s12 input-field">
+                                                            <p:commandButton value="Update Profile" action="#{userController.edit(u)}"/>
+                                                        </div>
+                                                    </div>
+                                                </p:column>
+                                            </p:dataTable>
                                         </h:form>
                                         <br></br>
                                         <p:button value="Back" outcome="user_homepage" />
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -67,9 +65,10 @@
         </div>
         <script>
             $(document).on("ready", fucntion(){
-                $('#login-page').css({'height':window.innerHeight + 'px'})
-            })
-            
+            $('#login-page').css({'height':window.innerHeight + 'px'})
+            }
+            )
+
         </script>
     </h:body>
 </html>

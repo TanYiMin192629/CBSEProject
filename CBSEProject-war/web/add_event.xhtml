@@ -2,7 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-       xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     
     <h:head>
         <title>Add Event</title>
@@ -34,41 +36,48 @@
                                 <div class="card-content">
                                     <h1>Add Event</h1>
                                     <div class="left-align">
-                                        <h:form id="login-form" action="DatePicker">
+                                        <h:form id="login-form" >
                                             <p:growl autoUpdate="true"/>
                                             <div class="row">
                                               
                                                  <div class="col s12 input-field">
-                                            <h:inputText id="name" value="#{eventController.e.name}" requiredMessage="Event Name is required:"/>
+                                            <h:inputText id="name" value="#{eventController.e.name}" required="true" requiredMessage="Event Name is required:"/>
                                             <h:outputLabel for="name" value="Event Name"/>
                                                 </div>
                                                  <div class="col s12 input-field">
-                                            <h:inputText id="datepicker" value="#{eventController.e.date}" requiredMessage="Date is required:"/>
-                                            <h:outputLabel for="datepicker" value="Date"/>
+
+                                            <h:inputText id="date" value="#{eventController.e.date}" required="true" requiredMessage="Date is required:" />      
+                                            <h:outputLabel for="date" value="Date"/>
+
                                                 </div>
                                                 <div class="col s12 input-field">
-                                            <h:inputText id="time"  value="#{eventController.e.time}" requiredMessage="Time is required:"/>
+                                            <h:inputText id="time"  value="#{eventController.e.time}" required="true" requiredMessage="Time is required:"/>
                                             <h:outputLabel for="time" value="Time"/>
                                                 </div>
                                                  <div class="col s12 input-field">
-                                            <h:inputText id="venue"  value="#{eventController.e.venue}" requiredMessage="Venue is required:"/>
+                                            <h:inputText id="venue"  value="#{eventController.e.venue}" required="true" requiredMessage="Venue is required:"/>
                                             <h:outputLabel for="venue" value="Venue"/>
                                                 </div>
                                                  <div class="col s12 input-field">
-                                            <h:inputText id="fee"  value="#{eventController.e.fee}" requiredMessage="Fee is required:"/>
+                                            <h:inputText id="fee"  value="#{eventController.e.fee}" required="true" requiredMessage="Fee is required:"/>
                                             <h:outputLabel for="fee" value="Fee"/>
                                                 </div>
                                                  <div class="col s12 input-field">
-                                            <h:inputText id="description" value="#{eventController.e.description}" requiredMessage="Description is required:"/>
+                                            <h:inputText id="description" value="#{eventController.e.description}" required="true" requiredMessage="Description is required:"/>
                                             <h:outputLabel for="description" value="Description"/>
                                                 </div>
                                                 <div class="col s12 input-field">
                                                     
-                                                    <h:commandLink value="Save" style="margin:25px;" action="#{eventController.edit()}" styleClass="btn btn-large"/>
+                                                    <h:commandLink value="Save" style="margin:10px 400px 10px 10px;" action="#{eventController.edit()}" styleClass="btn btn-large"/>
+                                                    <p:link outcome="manage_event" value="Back">
+                                                    <f:param name="Back" value="10" />
+                                                    </p:link>
+                     
                                                 </div>
                                                 
                                             </div>
                                         </h:form>
+                                        
                                     </div>
                                 </div>
                             </div>
