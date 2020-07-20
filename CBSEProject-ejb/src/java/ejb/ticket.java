@@ -12,6 +12,7 @@ import javax.ejb.LocalBean;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -21,6 +22,7 @@ import javax.persistence.Persistence;
 @LocalBean
 public class ticket {
     
+    private final String map = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAwiYiZ2WQC3gFelB7bX1GDnSdjfGqsjv4";
     EntityManagerFactory emf;
     EntityManager em;
     
@@ -43,6 +45,13 @@ public class ticket {
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 }
+    
+    
+    public String getMap() {
+        return map;
+    }
+    
+    
     
     
 }

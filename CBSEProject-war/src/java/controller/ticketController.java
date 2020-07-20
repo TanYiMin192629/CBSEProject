@@ -5,6 +5,7 @@
  */
 package controller;
 
+import ejb.ticket;
 import entities.Events;
 import entities.Ticket;
 import entities.Users;
@@ -13,8 +14,9 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
-import model.EventsFacade;
 import model.TicketFacade;
+import org.primefaces.model.map.MapModel;
+
 
 /**
  *
@@ -25,11 +27,17 @@ import model.TicketFacade;
 public class ticketController implements Serializable {
 
     @EJB
+    private ticket ticket;
+
+
+    @EJB
     private TicketFacade ticketFacade;
     
     
     private Events e = new Events();
     Users user;
+    private MapModel simpleModel;
+
     
     public Events getE() {
         return e;
@@ -51,9 +59,13 @@ public class ticketController implements Serializable {
         return this.ticketFacade.findAll();
     }
     
-    
-    
+    public String getMap() {
+        return this.ticket.getMap();
+    }
 
+    public MapModel getSimpleModel() {
+        return simpleModel;
+    }
     /**
      * Creates a new instance of joinEventController
      */
