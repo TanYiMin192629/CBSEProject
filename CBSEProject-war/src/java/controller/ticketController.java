@@ -27,9 +27,6 @@ public class ticketController implements Serializable {
     @EJB
     private TicketFacade ticketFacade;
     
-    @EJB
-    private EventsFacade eventsFacade;
-    
     
     private Events e = new Events();
     Users user;
@@ -53,6 +50,7 @@ public class ticketController implements Serializable {
     public List<Ticket> findall(){
         return this.ticketFacade.findAll();
     }
+    
     
     
 
