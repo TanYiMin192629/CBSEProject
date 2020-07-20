@@ -6,15 +6,15 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Check Ticket</title>
-        
+
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
-       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"> </script>
-    
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
     </h:head>
     <h:body styleClass="cyan lighten-5">
         <div class="valign-wrapper" id="login-page">
@@ -26,37 +26,37 @@
                                 <div class="card-content">
                                     <h2>Check Ticket</h2>
                                     <h:form id="login-form">
-                                    <div class="left-align" > 
-                                        <p:dataTable var="t" value="#{userController.checkTicket()}">
-                                            <p:column headerText="Ticket ID">
-                                                <h:outputText value="#{t[0]}" />
-                                            </p:column>
+                                        <div class="left-align" > 
+                                            <p:dataTable var="t" value="#{userController.checkTicket()}">
+                                                <p:column headerText="Ticket ID">
+                                                    <h:outputText value="#{t[0]}" />
+                                                </p:column>
 
-                                            <p:column headerText="Event ID">
-                                                <h:outputText value="#{t[1]}" />
-                                            </p:column>
+                                                <p:column headerText="Event ID">
+                                                    <h:outputText value="#{t[1]}" />
+                                                </p:column>
 
-                                            <p:column headerText="Event Name">
-                                                <h:outputText value="#{t[2]}" />
-                                            </p:column>
+                                                <p:column headerText="Event Name">
+                                                    <h:outputText value="#{t[2]}" />
+                                                </p:column>
 
-                                            <p:column headerText="Date">
-                                                <h:outputText value="#{t[3]}" />
-                                            </p:column>
+                                                <p:column headerText="Date">
+                                                    <h:outputText value="#{t[3]}" />
+                                                </p:column>
 
-                                                    <p:column headerText="Fee">
-                                                <h:outputText value="#{t[4]}" />
-                                            </p:column>
+                                                <p:column headerText="Fee">
+                                                    <h:outputText value="#{t[4]}" />
+                                                </p:column>
 
-                                                    <p:column headerText="Action">
-                                                        <h:commandLink value="Delete" action="#{userController.delete(t[0])}" style="margin:5px; size:20%;" styleClass="btn btn-large"/>
-                                            </p:column>
+                                                <p:column headerText="Action">
+                                                    <h:commandLink value="Cancel Ticket" action="#{userController.delete(t[0])}" style="margin:5px; size:20%;" styleClass="btn btn-small"/>
+                                                </p:column>
 
-                                        </p:dataTable>
-                                        
-                                       
-                                        <br></br> <p:button value="Back" outcome="user_homepage" />
-                                    </div>
+                                            </p:dataTable>
+
+
+                                            <br></br> <p:button value="Back" outcome="user_homepage" />
+                                        </div>
                                     </h:form>
                                 </div>
                             </div>
