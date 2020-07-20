@@ -23,12 +23,6 @@
     
     <h:body styleClass="cyan lighten-5">
          <p:layout fullPage="true">
-                
-                <p:layoutUnit position="north" size="300" resizable="true" closable="true" collapsible="true">
-                    
-                    <p:graphicImage value="Triangles.jpg" width="100%" height="99%"/>
-                    
-                </p:layoutUnit>
              
               <p:layoutUnit position="west" size="175" header="Menu" collapsible="true">
                     <p:menu>
@@ -48,22 +42,26 @@
              <div>
                  <h1>Participants List</h1>
              </div>
-   <p:dataTable var="car" value="#{dtBasicView.cars}">
+           
+           <h:form id="login-form">    
+   <p:dataTable var="e" value="#{eventController.viewParticipants()}">
    
     <p:column headerText="Event Name">
-        <h:outputText value="#{event.name}" />
+        <h:outputText value="#{e[0]}" />
     </p:column>
   <p:column headerText="Ticket Id">
-        <h:outputText value="#{event.ticket}" />
+        <h:outputText value="#{e[1]}" />
     </p:column>
  
-    <p:column headerText="Participants">
-        <h:outputText value="#{event.participants}" />
+    <p:column headerText="Participant's Name">
+        <h:outputText value="#{e[2]}" />
     </p:column>
        
     </p:dataTable>
+    </h:form>               
  </p:layoutUnit>
               </p:layout>
+          
     </h:body>
 </html>
 

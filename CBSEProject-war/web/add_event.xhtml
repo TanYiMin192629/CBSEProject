@@ -9,14 +9,33 @@
     <h:head>
         <title>Add Event</title>
         <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></link>
         <!-- Import JQuery before materialize.js -->
         <script type=" text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    </link>
+    
+ 
     </h:head>
     <h:body styleClass="cyan lighten-5">
+        
+        <p:layout fullPage="true">
+                
+             
+              <p:layoutUnit position="west" size="175" header="Menu" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Features">
+                            <p:menuitem value="Home" url="AdminHomepage.xhtml" />
+                            <p:menuitem value="Manage Event" url="manage_event.xhtml" />
+                            <p:menuitem value="Add Event" url="add_event.xhtml" />
+                            <p:menuitem value="View Participants" url="view_participants.xhtml" />
+                            <p:menuitem value="Log Out" url="index.xhtml" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+            <p:layoutUnit position="center" styleClass="centered">
         <div class="valign-wrapper" id="login-page">
             <div class ="container">
                 <div class="center-align">
@@ -26,7 +45,7 @@
                                 <div class="card-content">
                                     <h1>Add Event</h1>
                                     <div class="left-align">
-                                        <h:form id="login-form">
+                                        <h:form id="login-form" >
                                             <p:growl autoUpdate="true"/>
                                             <div class="row">
                                               
@@ -35,13 +54,21 @@
                                             <h:outputLabel for="name" value="Event Name"/>
                                                 </div>
                                                  <div class="col s12 input-field">
+
                                             <h:inputText id="date" value="#{eventController.e.date}" required="true" requiredMessage="Date is required:" />      
                                             <h:outputLabel for="date" value="Date"/>
                                                 </div>
+                                                
                                                 <div class="col s12 input-field">
-                                            <h:inputText id="time"  value="#{eventController.e.time}" required="true" requiredMessage="Time is required:"/>
+                                            
+
+                                            <h:inputText styleClass="datepicker" id="datepicker"  
+                                                         value="#{eventController.e.time}" required="true" 
+                                                         requiredMessage="Time is required:"/>  
+
                                             <h:outputLabel for="time" value="Time"/>
                                                 </div>
+                                                
                                                  <div class="col s12 input-field">
                                             <h:inputText id="venue"  value="#{eventController.e.venue}" required="true" requiredMessage="Venue is required:"/>
                                             <h:outputLabel for="venue" value="Venue"/>
@@ -56,10 +83,8 @@
                                                 </div>
                                                 <div class="col s12 input-field">
                                                     
-                                                    <h:commandLink value="Save" style="margin:10px 400px 10px 10px;" action="#{eventController.edit()}" styleClass="btn btn-large"/>
-                                                    <p:link outcome="manage_event" value="Back">
-                                                    <f:param name="Back" value="10" />
-                                                    </p:link>
+                                                    <h:commandLink value="Add" style="margin:10px 400px 10px 10px;" action="#{eventController.add()}" styleClass="btn btn-large"/>
+                                                    
                      
                                                 </div>
                                                 
@@ -74,7 +99,8 @@
                 </div>
             </div>
         </div>
-        
+        </p:layoutUnit>
+        </p:layout>    
     </h:body>
 </html>
 

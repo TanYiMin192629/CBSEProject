@@ -5,6 +5,7 @@
  */
 package controller;
 
+import ejb.Participants;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -19,6 +20,10 @@ import entities.*;
 @Named(value = "eventController")
 @SessionScoped
 public class eventController implements Serializable {
+    
+    @EJB
+    private Participants participants;
+    
     @EJB
     private EventsFacade eventsFacade;
     private Events e = new Events();
@@ -62,6 +67,20 @@ public class eventController implements Serializable {
     public String back(){
         return "manage_event";
     }
+    
+    public String view(Events e){
+    
+    this.e = e;
+    return "participant_list";
+    
+    }
+    
+    public List<Events> viewParticipants(){
+
+    return this.participants.viewParticipants(this.e.getEventid());
+    
+    }
+    
     
     
 }
