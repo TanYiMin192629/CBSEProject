@@ -15,7 +15,6 @@ import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import model.TicketFacade;
-import org.primefaces.model.map.MapModel;
 
 
 /**
@@ -36,7 +35,6 @@ public class ticketController implements Serializable {
     
     private Events e = new Events();
     Users user;
-    private MapModel simpleModel;
 
     
     public Events getE() {
@@ -59,13 +57,7 @@ public class ticketController implements Serializable {
         return this.ticketFacade.findAll();
     }
     
-    public String getMap() {
-        return this.ticket.getMap();
-    }
-
-    public MapModel getSimpleModel() {
-        return simpleModel;
-    }
+    
     /**
      * Creates a new instance of joinEventController
      */
