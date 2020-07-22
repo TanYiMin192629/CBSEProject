@@ -59,13 +59,6 @@ public class ticketController implements Serializable {
         return this.ticketFacade.findAll();
     }
     
-    public String getMap() {
-        return this.ticket.getMap();
-    }
-
-    public MapModel getSimpleModel() {
-        return simpleModel;
-    }
     /**
      * Creates a new instance of joinEventController
      */
