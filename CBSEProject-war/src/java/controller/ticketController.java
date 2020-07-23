@@ -44,7 +44,7 @@ public class ticketController implements Serializable {
     
     private Events e = new Events();
     Users user;
-    StreamedContent chart = null;
+    StreamedContent chart;
 
     
     public Events getE() {
@@ -75,7 +75,7 @@ public class ticketController implements Serializable {
         return this.ticketFacade.findAll();
     }
     
-    public StreamedContent generateChart() throws IOException{
+    public void generateChart() throws IOException{
     
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         List<Object[]> data = this.ticket.countTicket();
@@ -90,7 +90,7 @@ public class ticketController implements Serializable {
         
         
         int width = 640;    /* Width of the image */
-        int height = 1000;   /* Height of the image */ 
+        int height = 250;   /* Height of the image */ 
         
         File BarChart = new File("D:\\chart.jpg"); 
         ChartUtilities.saveChartAsJPEG(BarChart , barChart , width , height);
@@ -98,11 +98,9 @@ public class ticketController implements Serializable {
         fis = new FileInputStream(BarChart);
         this.chart = new DefaultStreamedContent(fis);
         fis.close();
-        
-        return this.chart;
-    
-    
+      
     }
+    
     /**
      * Creates a new instance of joinEventController
      */
