@@ -92,7 +92,7 @@ public class ticketController implements Serializable {
         int width = 640;    /* Width of the image */
         int height = 1000;   /* Height of the image */ 
         
-        File BarChart = new File("D:\\EMS\\CBSEProject\\CBSEProject-war\\web\\images\\chart.jpg"); 
+        File BarChart = new File("D:\\chart.jpg"); 
         ChartUtilities.saveChartAsJPEG(BarChart , barChart , width , height);
         
         fis = new FileInputStream(BarChart);
