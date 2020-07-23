@@ -12,7 +12,6 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.persistence.Persistence;
 import model.EventsFacade;
 import model.TicketFacade;
 

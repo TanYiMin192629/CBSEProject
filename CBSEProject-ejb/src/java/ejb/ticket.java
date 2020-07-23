@@ -12,6 +12,7 @@ import javax.ejb.LocalBean;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -42,6 +43,16 @@ public class ticket {
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+}
+    
+    public List<Object[]> countTicket(){
+        emf = Persistence.createEntityManagerFactory("CBSEProject-ejbPU");
+        em = emf.createEntityManager();
+        
+        List<Object[]> results = em.createQuery("Select e.name, count(t.ticketid) from Ticket t, Events e where (t.eventid = e) group by e.name").getResultList();
+        
+        
+        return results;
 }
     
     
